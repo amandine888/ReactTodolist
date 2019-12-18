@@ -10,7 +10,7 @@ import React from 'react';
 //         return (
 //             <div className = "titre">
 //                 <h1>
-//                     {this.state.titre}
+//                     {this.props.Titre}
 //                 </h1>
 //             </div>
 
@@ -18,6 +18,6 @@ import React from 'react';
 //     }
 // }
 
-const Titre = props => <h1> {this.titre}</h1>
+const Titre = props => <h1>{props.Titre}</h1>
 
 export default Titre;
