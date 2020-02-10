@@ -1,17 +1,29 @@
 "use-strict";
 
-import React from 'react';  
+import React from 'react'; 
 
 class List extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
 
-    render() {
+    render (){
+
+        const{idTask, valueTask} = this.props;
+
         return (
             <div>
-                <input id="newTask" type="text" value={this.props.List} onChange={this.toggleChange}/>
-                <button type="button" onClick={this.addTask}>Add task</button>
+                <ul>
+                    <li id={idTask}>
+                        {valueTask}
+                        <button type="button">Done</button>
+                        <button type="button">WIP</button>
+                        <button type="button">Delete</button>
+                    </li>
+                </ul>
             </div>
-        );
+        )
     }
 }
 

@@ -13,7 +13,6 @@ import React from 'react';
 //                     {this.props.Titre}
 //                 </h1>
 //             </div>
-
 //         );
 //     }
 // }
