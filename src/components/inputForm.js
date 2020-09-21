@@ -1,6 +1,7 @@
 "use-strict";
+import React from 'react'; 
 
-import React from 'react';  
+import "./inputStyle.css"; 
 
 class InputForm extends React.Component {
 
@@ -14,10 +15,13 @@ class InputForm extends React.Component {
         const {change} = this.props;
 
     return (
-        <div>
+        <div class="form-section">
             <form onSubmit={handleSubmit} >
-                <input type="text" value={addValue} onChange={change}/>
-                <button type="submit" >Add task</button>
+                <div class="form-group col-sm-4 my-1">
+                    <label>Add a new task</label>
+                    <input type="text" class="form-control" class="input" placeholder="Add task" value={addValue} onChange={change}/>
+                    <button class="btn btn-outline-secondary" type="submit">Submit</button>
+                </div>
             </form>
         </div>
     );

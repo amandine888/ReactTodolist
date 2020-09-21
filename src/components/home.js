@@ -12,7 +12,7 @@ class Home extends React.Component {
         this.state = {
             tasks: [],
             inputValue: "",
-            titre: "TO DO LIST REACT", 
+            titre: "My To Do List", 
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -21,8 +21,8 @@ class Home extends React.Component {
 
 handleChange(event) {
     this.setState({
-        inputValue: event.target.value
-    }, ()=> console.log(this.state.inputValue));
+        inputValue: event.target.value}, 
+        ()=> console.log(this.state.inputValue));
 }
 
 submitTask = (event) => {
@@ -51,21 +51,23 @@ submitTask = (event) => {
             </div>
         )) 
         return (
-            <div className="mainPage">
-                <Titre Titre ={this.state.titre}/>
-                <InputForm handleSubmit = {this.submitTask} addValue = {this.state.inputValue} change = {this.handleChange}/>
-                <div>
-                    <ul>
-                        {add}
-                    </ul>
-                </div>
-                <div className="listTodo">
-                            <List
-                            // key={item.id}
-                            // idTask={item.id}
-                            // valueTask={item.inputValue}
-                            >
-                            </List>
+            <div className="mainPage" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", backgroundColor:"#F6E4F6", height:"100vh"}}>
+                <div className="section-elements" style={{backgroundColor:"white", borderRadius:"8%", height:"50vh", width:"40vw", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                    <Titre Titre ={this.state.titre}/>
+                    <InputForm handleSubmit = {this.submitTask} addValue = {this.state.inputValue} change = {this.handleChange}/>
+                    <div>
+                        <ul>
+                            {add}
+                        </ul>
+                    </div>
+                    <div className="listTodo">
+                                <List
+                                // key={item.id}
+                                // idTask={item.id}
+                                // valueTask={item.inputValue}
+                                >
+                                </List>
+                    </div>
                 </div>
             </div> 
         )}

@@ -1,0 +1,12 @@
+.form-section {
+    box-shadow: 0 0 10px 0px;
+    width: 25vw;
+    height: 30vh;
+    background-color: #F1F5F9;
+    border-radius: 10%;
+}
+
+.input {
+    width: 20vw;
+    height: 5vh;
+}
