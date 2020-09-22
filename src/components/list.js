@@ -17,9 +17,6 @@ class List extends React.Component {
                 <ul>
                     <li id={idTask}>
                         {valueTask}
-                        <button type="button">Done</button>
-                        <button type="button">WIP</button>
-                        <button type="button">Delete</button>
                     </li>
                 </ul>
             </div>

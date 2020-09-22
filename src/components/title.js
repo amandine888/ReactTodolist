@@ -17,6 +17,6 @@ import React from 'react';
 //     }
 // }
 
-const Titre = props => <h1>{props.Titre}</h1>
+const Title = props => <h1>{props.Title}</h1>
 
-export default Titre;
+export default Title;

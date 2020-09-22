@@ -1,7 +1,9 @@
 "use-strict";
 import React from 'react'; 
 
-import "./inputStyle.css"; 
+// CSS : 
+
+import "../css/inputStyle.css"; 
 
 class InputForm extends React.Component {
 
