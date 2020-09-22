@@ -1,0 +1,19 @@
+.mainPage {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    background-color: #F6E4F6; 
+    height: 100vh; 
+}
+
+.section-elements {
+    background-color: white; 
+    border-radius: 8%; 
+    height: 70vh;
+    width: 40vw;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-around;
+    align-items: center;
+}

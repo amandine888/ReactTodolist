@@ -8,6 +8,10 @@ import Title from './title';
 import InputForm from './inputForm'
 import List from './list';
 
+// CSS : 
+
+import "../css/homeStyle.css"
+
 class Home extends React.Component {
 
     constructor(props) {
@@ -16,7 +20,7 @@ class Home extends React.Component {
         this.state = {
             tasks: [],
             inputValue: "",
-            title: "My To Do List", 
+            title: "my to do list", 
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -58,8 +62,8 @@ submitTask = (event) => {
             </div>
         )) 
         return (
-            <div className="mainPage" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", backgroundColor:"#F6E4F6", height:"100vh"}}>
-                <div className="section-elements" style={{backgroundColor:"white", borderRadius:"8%", height:"50vh", width:"40vw", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+            <div className="mainPage">
+                <div className="section-elements">
                     <Title Title ={this.state.title}/>
                     <InputForm handleSubmit = {this.submitTask} addValue = {this.state.inputValue} change = {this.handleChange}/>
                     <div>
