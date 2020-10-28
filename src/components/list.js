@@ -1,6 +1,7 @@
 "use-strict";
 
 import React from 'react'; 
+import "../css/listStyle.css"; 
 
 class List extends React.Component {
 
@@ -14,7 +15,7 @@ class List extends React.Component {
 
         return (
             <div>
-                <ul>
+                <ul className="list-container">
                     <li id={idTask}>
                         {valueTask}
                     </li>

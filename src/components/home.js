@@ -24,7 +24,8 @@ class Home extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.submitTask = this.submitTask.bind(this)
+        this.submitTask = this.submitTask.bind(this); 
+        this.onDelete = this.onDelete.bind(this); 
 }
 
 handleChange = (event) => {
@@ -38,15 +39,25 @@ submitTask = (event) => {
     const newtask = this.state.inputValue
     const key = Math.random();
     if(newtask){
-    let copyState = [ ...this.state.tasks, {newtask, key} ] //nouveau tableau
-    console.log(copyState); 
+        let copyState = [ ...this.state.tasks, {newtask, key} ] //nouveau tableau
+        console.log(copyState); 
 
-    this.setState({
-        tasks: copyState,
-        inputValue: ""
-        });
+        this.setState({
+            tasks: copyState,
+            inputValue: ""
+            });
+        }
     }
-    }
+
+onDelete = (val) =>{
+    const data = this.state.tasks.filter(function(task, index){
+        if (index = val) {
+            return false
+        }
+        return true; 
+    }); 
+    this.setState({tasks: [...data]}); 
+}
 
     render() {
 
@@ -58,7 +69,7 @@ submitTask = (event) => {
                 </li>
                 <button type="button">Done</button>
                 <button type="button">WIP</button>
-                <button type="button">Delete</button>
+                <button type="button" onClick= {this.onDelete}>Delete</button>
             </div>
         )) 
         return (
@@ -72,7 +83,7 @@ submitTask = (event) => {
                         </ul>
                     </div>
                     <div className="listTodo">
-                                <List></List>
+                        <List></List>
                     </div>
                 </div>
             </div> 
