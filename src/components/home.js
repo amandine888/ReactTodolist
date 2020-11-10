@@ -36,54 +36,47 @@ handleChange = (event) => {
 
 submitTask = (event) => {
     event.preventDefault()
-    const newtask = this.state.inputValue
-    const key = Math.random();
+    const newtask = {
+        inputValue: this.state.inputValue, 
+        id: Math.random(),
+    }
     if(newtask){
-        let copyState = [ ...this.state.tasks, {newtask, key} ] //nouveau tableau
-        console.log(copyState); 
+        let tasks = [ ...this.state.tasks, newtask ] //nouveau tableau
+        console.log(tasks.id); 
 
         this.setState({
-            tasks: copyState,
+            tasks,
             inputValue: ""
             });
         }
     }
 
-onDelete = (val) =>{
-    const data = this.state.tasks.filter(function(task, index){
-        if (index = val) {
-            return false
-        }
-        return true; 
+onDelete = (id) =>{
+    const data = this.state.tasks.filter((task)=>{
+        if (task.id !== id)
+            return task;
     }); 
-    this.setState({tasks: [...data]}); 
+    this.setState({tasks: data}); 
 }
 
     render() {
-
-        const tasks = this.state.tasks
-        const add = tasks.map(tacheAdd => (
-            <div key = {tacheAdd.key}>
-                <li>
-                    {tacheAdd.newtask}
-                </li>
-                <button type="button">Done</button>
-                <button type="button">WIP</button>
-                <button type="button" onClick= {this.onDelete}>Delete</button>
-            </div>
-        )) 
         return (
             <div className="mainPage">
                 <div className="section-elements">
                     <Title Title ={this.state.title}/>
                     <InputForm handleSubmit = {this.submitTask} addValue = {this.state.inputValue} change = {this.handleChange}/>
-                    <div>
-                        <ul>
-                            {add}
-                        </ul>
-                    </div>
+                    
                     <div className="listTodo">
-                        <List></List>
+                        {this.state.tasks.map((item, index)=>{
+                            return (
+                                <List
+                                key = {item.id}
+                                taskId = {item.id}
+                                addValue = {item.inputValue}
+                                taskDelete = {this.onDelete}
+                                onClick = {this.state.tasks}/>
+                            )
+                        })}
                     </div>
                 </div>
             </div> 

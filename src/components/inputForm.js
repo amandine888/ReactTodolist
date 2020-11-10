@@ -17,12 +17,12 @@ class InputForm extends React.Component {
         const {change} = this.props;
 
     return (
-        <div class="form-section">
+        <div className="form-section">
             <form onSubmit={handleSubmit} >
-                <div class="form-group col-sm-4 my-1">
+                <div className="form-group col-sm-4 my-1">
                     <label>Add a new task</label>
-                    <input type="text" class="form-control" class="input" placeholder="Add task" value={addValue} onChange={change}/>
-                    <button class="btn btn-outline-secondary" type="submit">Submit</button>
+                    <input type="text" className="form-control" className="input" placeholder="Add task" value={addValue} onChange={change}/>
+                    <button className="btn btn-outline-secondary" type="submit">Submit</button>
                 </div>
             </form>
         </div>

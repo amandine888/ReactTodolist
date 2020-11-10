@@ -11,15 +11,18 @@ class List extends React.Component {
 
     render (){
 
-        const{idTask, valueTask} = this.props;
+        const{taskId, addValue, taskDelete} = this.props;
 
         return (
             <div>
                 <ul className="list-container">
-                    <li id={idTask}>
-                        {valueTask}
+                    <li id={taskId}>
+                        {addValue}
                     </li>
                 </ul>
+                <button type="button">Done</button>
+                <button type="button">WIP</button>
+                <button type="button" onClick= {()=>taskDelete(taskId)}>Delete</button>
             </div>
         )
     }
