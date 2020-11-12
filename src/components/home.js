@@ -65,19 +65,18 @@ onDelete = (id) =>{
                 <div className="section-elements">
                     <Title Title ={this.state.title}/>
                     <InputForm handleSubmit = {this.submitTask} addValue = {this.state.inputValue} change = {this.handleChange}/>
-                    
-                    <div className="listTodo">
-                        {this.state.tasks.map((item, index)=>{
-                            return (
-                                <List
-                                key = {item.id}
-                                taskId = {item.id}
-                                addValue = {item.inputValue}
-                                taskDelete = {this.onDelete}
-                                onClick = {this.state.tasks}/>
-                            )
-                        })}
-                    </div>
+                </div>
+                <div className="listTodo">
+                    {this.state.tasks.map((item, index)=>{
+                        return (
+                            <List
+                            key = {item.id}
+                            taskId = {item.id}
+                            addValue = {item.inputValue}
+                            taskDelete = {this.onDelete}
+                            onClick = {this.state.tasks}/>
+                        )
+                    })}
                 </div>
             </div> 
         )}
