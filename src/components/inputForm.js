@@ -21,8 +21,10 @@ class InputForm extends React.Component {
             <form onSubmit={handleSubmit} >
                 <div className="form-group col-sm-4 my-1">
                     <label>Add a new task</label>
-                    <input type="text" className="form-control" className="input" placeholder="Add task" value={addValue} onChange={change}/>
-                    <button className="btn btn-outline-secondary" type="submit">Submit</button>
+                    <div className="input-section">
+                        <input type="text" className="form-control" className="input" placeholder="Add task" value={addValue} onChange={change}/>
+                        <button className="btn btn-dark btn-sm" type="submit">Submit</button>
+                    </div>
                 </div>
             </form>
         </div>
