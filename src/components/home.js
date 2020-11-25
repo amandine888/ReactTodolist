@@ -26,6 +26,7 @@ class Home extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.submitTask = this.submitTask.bind(this); 
         this.onDelete = this.onDelete.bind(this); 
+        this.wipTask = this.wipTask.bind(this); 
 }
 
 handleChange = (event) => {
@@ -39,6 +40,7 @@ submitTask = (event) => {
     const newtask = {
         inputValue: this.state.inputValue, 
         id: Math.random(),
+        inprogress: false, 
     }
     if(newtask){
         let tasks = [ ...this.state.tasks, newtask ] //nouveau tableau
@@ -59,6 +61,14 @@ onDelete = (id) =>{
     this.setState({tasks: data}); 
 }
 
+wipTask = (id) => {
+    const wip = [...this.state.tasks];
+    wip[id].inprogress = !wip[id].inprogress;
+
+    this.setState({
+    wip,
+    })}
+
     render() {
         return (
             <div className="mainPage">
@@ -73,7 +83,9 @@ onDelete = (id) =>{
                             key = {item.id}
                             taskId = {item.id}
                             addValue = {item.inputValue}
+                            dataProgress = {item.inprogress}
                             taskDelete = {this.onDelete}
+                            taskInprogress={() => this.wipTask(index)}
                             onClick = {this.state.tasks}/>
                         )
                     })}

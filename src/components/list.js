@@ -11,18 +11,18 @@ class List extends React.Component {
 
     render (){
 
-        const{taskId, addValue, taskDelete} = this.props;
+        const{taskId, addValue, dataProgress, taskDelete, taskInprogress} = this.props;
 
         return (
             <div className="newTask-container">
                 <ul className="description-container">
-                    <li id={taskId}>
+                    <li id={taskId} data-progress={dataProgress} className='wipClass'>
                         {addValue}
                     </li>
                 </ul>
                 <div className="button-container">
                     <button className="btn btn-outline-success btn-sm" type="button">Done</button>
-                    <button className="btn btn-outline-warning btn-sm" type="button">WIP</button>
+                    <button className="btn btn-outline-warning btn-sm" type="button" onClick={()=>taskInprogress(taskId)}>WIP</button>
                     <button className="btn btn-outline-danger btn-sm" type="button" onClick= {()=>taskDelete(taskId)}>Delete</button>
                 </div>
             </div>
