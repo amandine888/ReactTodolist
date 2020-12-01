@@ -27,3 +27,7 @@
     background-color: #FFEFD6; 
     width: 25vw;
 }
+
+.doneClass[data-done="true"] {
+    text-decoration: line-through;
+}

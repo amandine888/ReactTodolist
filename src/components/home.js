@@ -27,6 +27,7 @@ class Home extends React.Component {
         this.submitTask = this.submitTask.bind(this); 
         this.onDelete = this.onDelete.bind(this); 
         this.wipTask = this.wipTask.bind(this); 
+        this.markedAsDone = this.markedAsDone.bind(this); 
 }
 
 handleChange = (event) => {
@@ -44,7 +45,7 @@ submitTask = (event) => {
     }
     if(newtask){
         let tasks = [ ...this.state.tasks, newtask ] //nouveau tableau
-        console.log(tasks.id); 
+        console.log(newtask.id); 
 
         this.setState({
             tasks,
@@ -67,7 +68,17 @@ wipTask = (id) => {
 
     this.setState({
     wip,
-    })}
+    })
+}
+
+markedAsDone = (id) => {
+    const done = [...this.state.tasks]; 
+    done[id].achieve = !done[id].achieve; 
+
+    this.setState({
+        done, 
+    })
+}
 
     render() {
         return (
@@ -84,8 +95,10 @@ wipTask = (id) => {
                             taskId = {item.id}
                             addValue = {item.inputValue}
                             dataProgress = {item.inprogress}
+                            dataDone = {item.achieve}
                             taskDelete = {this.onDelete}
                             taskInprogress={() => this.wipTask(index)}
+                            taskDone = {() => this.markedAsDone(index)}
                             onClick = {this.state.tasks}/>
                         )
                     })}
