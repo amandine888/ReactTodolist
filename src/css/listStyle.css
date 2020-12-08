@@ -1,0 +1,33 @@
+.newTask-container{
+    border-bottom: 1px solid black; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 1vh;
+    padding: 1vw;
+    height: 15vh;
+    width: 30vw;
+}
+
+.description-container {
+    list-style: none;
+    font-family: 'Raleway', sans-serif;
+    padding: 0; 
+}
+
+.button-container{
+    width: 15vw;
+    display: flex; 
+    justify-content: space-between;
+    margin: 0;
+}
+
+.wipClass[data-progress="true"] {
+    background-color: #FFEFD6; 
+    width: 25vw;
+}
+
+.doneClass[data-done="true"] {
+    text-decoration: line-through;
+}
