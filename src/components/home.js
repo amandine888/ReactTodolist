@@ -30,10 +30,21 @@ class Home extends React.Component {
         this.markedAsDone = this.markedAsDone.bind(this); 
 }
 
+componentDidMount () {
+    const state = localStorage.getItem('state')
+    if (state) {
+        this.setState(JSON.parse(state))
+    }
+}
+
 handleChange = (event) => {
     this.setState({
         inputValue: event.target.value}, 
         ()=> console.log(this.state.inputValue));
+}
+
+saveToLocalStorage = () => {
+    localStorage.setItem('state', JSON.stringify(this.state))
 }
 
 submitTask = (event) => {
@@ -49,15 +60,18 @@ submitTask = (event) => {
 
         this.setState({
             tasks,
-            inputValue: ""
-            });
-        }
+            inputValue: "", 
+        },
+            this.saveToLocalStorage
+        );
     }
+}
 
 onDelete = (id) =>{
     const data = this.state.tasks.filter((task)=>{
         if (task.id !== id)
-            return task;
+            return task
+            localStorage.removeItem('state');
     }); 
     this.setState({tasks: data}); 
 }
@@ -68,7 +82,9 @@ wipTask = (id) => {
 
     this.setState({
     wip,
-    })
+    }, 
+    this.saveToLocalStorage
+    );
 }
 
 markedAsDone = (id) => {
@@ -77,7 +93,9 @@ markedAsDone = (id) => {
 
     this.setState({
         done, 
-    })
+    }, 
+    this.saveToLocalStorage
+    );
 }
 
     render() {
